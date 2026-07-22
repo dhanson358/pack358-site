@@ -1,0 +1,153 @@
+---
+import Base from '../layouts/Base.astro';
+import pack from '../data/pack.json';
+---
+
+<Base
+  title="Uniforms & Gear — Pack 358"
+  description="What to actually buy for a new Cub Scout (and what to skip) — Pack 358's practical uniform guide."
+>
+  <section class="section">
+    <div class="container">
+      <span class="kicker kicker--dark">GEAR GUIDE</span>
+      <h1>Uniforms &amp; Gear (what to actually buy)</h1>
+
+      <div class="callout">
+        <strong>Don't buy anything before your first meeting.</strong>
+        Come as you are, meet the den, and figure out sizing before you spend
+        a dime. And if money's tight or your scout is between sizes, just
+        ask us — we have a hand-me-down bin.
+      </div>
+
+      <div class="list-grid">
+        <div class="card list-card">
+          <h2>Buy this</h2>
+          <ul>
+            <li>Official Cub Scout shirt (den color)</li>
+            <li>Neckerchief + slide</li>
+            <li>Belt</li>
+          </ul>
+        </div>
+        <div class="card list-card">
+          <h2>Skip / ask first</h2>
+          <ul>
+            <li>Official pants</li>
+            <li>Official socks</li>
+            <li>Hats</li>
+          </ul>
+          <p class="ask-note muted">
+            Specifics vary by den — ask your den leader before you buy.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="section-heading">By rank</h2>
+      <div class="rank-grid">
+        <div class="card rank-card">
+          <h3>Lion &amp; Tiger</h3>
+          <p class="muted">
+            Class-B t-shirt phase — the den t-shirt is all you need day to
+            day.
+          </p>
+        </div>
+        <div class="card rank-card">
+          <h3>Wolf &amp; Bear</h3>
+          <p class="muted">The full blue uniform shirt comes into play.</p>
+        </div>
+        <div class="card rank-card">
+          <h3>Arrow of Light</h3>
+          <p class="muted">
+            May transition to the khaki (Scouts BSA-style) uniform.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="section-heading">Where to buy</h2>
+      <div class="card shop-card">
+        <p><strong>{pack.scoutShop.name}</strong> — {pack.scoutShop.city}</p>
+        <p>
+          <a href="https://www.scoutshop.org">Shop online at scoutshop.org →</a>
+        </p>
+        <p class="muted">
+          Before you buy new, ask us — we have a hand-me-down bin.
+        </p>
+      </div>
+
+      <h2 class="section-heading">Patch placement</h2>
+      <p>
+        Not sure where a patch goes? See the official
+        <a href="https://www.scouting.org/resources/insignia-guide/"
+          >BSA insignia guide</a
+        >.
+      </p>
+
+      <p class="cost-summary muted">
+        <strong>What it costs:</strong> uniform basics run about
+        ${pack.fees.uniformLow}–${pack.fees.uniformHigh}.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .callout {
+    margin-top: 18px;
+    background: var(--cream);
+    border-left: 4px solid var(--orange);
+    border-radius: 8px;
+    padding: 16px 18px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .list-card {
+    padding: 18px;
+  }
+  .list-card h2 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  .list-card ul {
+    padding-left: 1.1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .ask-note {
+    margin-top: 10px;
+    font-size: 0.8rem;
+  }
+  .section-heading {
+    margin-top: 36px;
+    font-size: 1.2rem;
+  }
+  .rank-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+  }
+  .rank-card {
+    padding: 16px;
+  }
+  .rank-card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+  .shop-card {
+    margin-top: 16px;
+    padding: 18px;
+    font-size: 0.9rem;
+  }
+  .shop-card p + p {
+    margin-top: 8px;
+  }
+  .cost-summary {
+    margin-top: 24px;
+    font-size: 0.85rem;
+  }
+</style>
