@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import { linkOr } from '../lib/links';
+import pack from '../data/pack.json';
+import fees from '../data/fees.json';
+---
+
+<Base
+  title="Payments — Pack 358"
+  description="Pay Pack 358 dues and event fees online — 100% goes to the pack."
+>
+  <section class="section">
+    <div class="container">
+      <span class="kicker kicker--dark">PAYMENTS</span>
+      <h1>Payments</h1>
+      <p class="intro muted">
+        Pack dues and event fees are collected online through <strong>Zeffy</strong>,
+        our payment processor — pay by card or bank transfer, and 100% goes
+        to the pack. Along the way, Zeffy will ask for an optional tip to
+        keep their platform running — the tip goes to Zeffy and is optional —
+        feel free to set it to $0.
+      </p>
+
+      <div class="card dues-card">
+        <h2>Annual dues</h2>
+        <p class="muted">Covers awards &amp; badges, Pinewood Derby kits, campout gear, and the Blue &amp; Gold banquet.</p>
+        <a class="btn btn-primary" href={linkOr('zeffyDues', 'Pack dues')}
+          >Annual Dues — ${pack.fees.pack}</a
+        >
+      </div>
+
+      <h2 class="section-heading">Event fees</h2>
+      {
+        fees.length === 0 ? (
+          <p class="muted">No event fees are being collected right now.</p>
+        ) : (
+          <div class="fees-grid">
+            {fees.map((fee) => (
+              <a class="btn btn-navy" href={fee.url}>
+                {fee.label}
+              </a>
+            ))}
+          </div>
+        )
+      }
+
+      <p class="cost-summary muted">
+        Questions about balances, refunds, or scholarships? Contact our
+        treasurer at <a href={`mailto:${pack.email}`}>{pack.email}</a>.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .intro {
+    max-width: 640px;
+    margin-top: 10px;
+    font-size: 0.95rem;
+  }
+  .dues-card {
+    margin-top: 24px;
+    padding: 18px;
+  }
+  .dues-card h2 {
+    font-size: 1.05rem;
+  }
+  .dues-card p {
+    margin: 8px 0 14px;
+    font-size: 0.9rem;
+  }
+  .section-heading {
+    margin-top: 36px;
+    font-size: 1.2rem;
+  }
+  .fees-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 14px;
+  }
+  .cost-summary {
+    margin-top: 24px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+</style>

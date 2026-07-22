@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import StepCard from '../components/StepCard.astro';
+import { linkOr } from '../lib/links';
+import pack from '../data/pack.json';
+---
+
+<Base
+  title="Health Forms — Pack 358"
+  description="How to submit your scout's Annual Health & Medical Record (AHMR) to Pack 358."
+>
+  <section class="section">
+    <div class="container">
+      <span class="kicker kicker--dark">HEALTH FORMS</span>
+      <h1>Health Forms (AHMR)</h1>
+      <p class="intro muted">
+        The BSA Annual Health &amp; Medical Record, Parts A &amp; B, is
+        required annually for every scout and participating adult. We need it
+        on file before any campout.
+      </p>
+
+      <div class="step-grid">
+        <StepCard n={1} title="Download the blank form">
+          Get the official blank AHMR (Parts A &amp; B) from Scouting America.
+          <Fragment slot="cta">
+            <a class="btn btn-navy" href={pack.links.ahmrPdf}
+              >Download the AHMR →</a
+            >
+          </Fragment>
+        </StepCard>
+
+        <StepCard n={2} title="Fill it out & scan or photograph it">
+          Complete Parts A &amp; B for your scout (and any participating
+          adults), then scan or take a clear photo of every page.
+        </StepCard>
+
+        <StepCard n={3} title="Upload it">
+          Send it to us securely so it's on file before your scout's first
+          campout.
+          <Fragment slot="cta">
+            <a
+              class="btn btn-primary"
+              href={linkOr('healthFormUpload', 'Health form')}
+              >Upload Health Form →</a
+            >
+          </Fragment>
+        </StepCard>
+      </div>
+
+      <div class="card privacy-box">
+        <h2>Privacy</h2>
+        <p class="muted">
+          Only the health coordinator and Cubmaster can see submitted forms.
+          Forms are purged at the end of each program year, or sooner on
+          request.
+        </p>
+        <p class="muted">
+          Prefer paper? Hand a copy to any leader at a pack meeting — no
+          upload required.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .intro {
+    max-width: 640px;
+    margin-top: 10px;
+    font-size: 0.95rem;
+  }
+  .step-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .privacy-box {
+    margin-top: 28px;
+    padding: 18px;
+  }
+  .privacy-box h2 {
+    font-size: 1rem;
+  }
+  .privacy-box p {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+</style>
