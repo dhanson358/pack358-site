@@ -1,0 +1,58 @@
+---
+interface Props {
+  n: number;
+  accent?: boolean;
+  title: string;
+}
+
+const { n, accent = false, title } = Astro.props;
+---
+
+<div class="card step-card">
+  <div class="head">
+    <div class:list={['circle', { accent }]}>{n}</div>
+    <div class="title">{title}</div>
+  </div>
+  <div class="body"><slot /></div>
+  <div class="cta"><slot name="cta" /></div>
+</div>
+
+<style>
+  .step-card {
+    padding: 18px;
+  }
+  .head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .circle {
+    width: 24px;
+    height: 24px;
+    flex: none;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-align: center;
+    line-height: 24px;
+  }
+  .circle.accent {
+    background: var(--orange);
+  }
+  .title {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--navy);
+  }
+  .body {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+  .cta {
+    margin-top: 12px;
+  }
+</style>

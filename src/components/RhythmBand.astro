@@ -1,0 +1,44 @@
+---
+import pack from '../data/pack.json';
+---
+
+<div class="band rhythm">
+  <div class="col" title={pack.denMeeting}>
+    <div class="num">1&times;/mo</div>
+    <div class="label">Den meetings &mdash; Sundays</div>
+  </div>
+  <div class="col mid" title={pack.packMeeting}>
+    <div class="num">1&times;/mo</div>
+    <div class="label">Pack meeting &mdash; last Wednesday</div>
+  </div>
+  <div class="col">
+    <div class="num">1&times;/season</div>
+    <div class="label">Big event &mdash; campout, derby, banquet</div>
+  </div>
+</div>
+
+<style>
+  .rhythm {
+    display: flex;
+    gap: 10px;
+    text-align: center;
+    padding: 18px 24px;
+  }
+  .col {
+    flex: 1;
+  }
+  .mid {
+    border-left: 1px solid rgba(255, 199, 44, 0.3);
+    border-right: 1px solid rgba(255, 199, 44, 0.3);
+  }
+  .num {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--gold);
+  }
+  .label {
+    font-size: 0.75rem;
+    color: #c9d4e4;
+    margin-top: 2px;
+  }
+</style>

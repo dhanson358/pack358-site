@@ -1,0 +1,106 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  image: ImageMetadata;
+  kicker: string;
+  sub: string;
+}
+
+const { image, kicker, sub } = Astro.props;
+---
+
+<div class="hero">
+  <Image
+    src={image}
+    alt=""
+    widths={[480, 768, 1200, 1600]}
+    sizes="100vw"
+    class="hero-img"
+  />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="kicker">{kicker}</div>
+    <h1 class="headline"><slot /></h1>
+    <p class="sub">{sub}</p>
+    <div class="cta"><slot name="cta" /></div>
+  </div>
+  <svg class="hero-edge" viewBox="0 0 100 6" preserveAspectRatio="none">
+    <polygon points="0,6 100,0 100,6" fill="#F4F1EA" />
+  </svg>
+</div>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 2.4/1;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      75deg,
+      rgba(15, 32, 58, 0.92) 0%,
+      rgba(15, 32, 58, 0.55) 50%,
+      rgba(15, 32, 58, 0.05) 100%
+    );
+  }
+  .hero-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 28px;
+    max-width: 460px;
+  }
+  .hero-content .kicker {
+    color: var(--gold);
+  }
+  .headline {
+    margin-top: 6px;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.08;
+  }
+  .headline :global(.gold) {
+    color: var(--gold);
+  }
+  .sub {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #dce4ef;
+  }
+  .cta {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .hero-edge {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+  }
+  @media (max-width: 640px) {
+    .hero-img {
+      height: auto;
+      aspect-ratio: 1.4/1;
+    }
+    .headline {
+      font-size: 1.5rem;
+    }
+  }
+</style>
