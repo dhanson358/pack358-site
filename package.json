@@ -11,12 +11,14 @@
     "preview": "astro preview",
     "astro": "astro",
     "qr": "node scripts/make-qr.mjs",
-    "flyer": "npm run build && node scripts/make-flyer-pdf.mjs"
+    "flyer": "npm run build && node scripts/make-flyer-pdf.mjs",
+    "check": "npm run build && npx linkinator dist --recurse --skip 'mailto:.*'"
   },
   "dependencies": {
     "astro": "^7.1.3"
   },
   "devDependencies": {
+    "linkinator": "^8.0.0",
     "playwright": "^1.61.1",
     "qrcode": "^1.5.4"
   }
