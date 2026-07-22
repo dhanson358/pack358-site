@@ -1,9 +1,133 @@
 ---
 import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import PhotoCard from '../components/PhotoCard.astro';
+import RhythmBand from '../components/RhythmBand.astro';
+import campout from '../assets/photos/campout.png';
+import derby from '../assets/photos/derby.png';
+import rocket from '../assets/photos/rocket.png';
+import hike from '../assets/photos/hike.png';
+import regatta from '../assets/photos/regatta.png';
 ---
+
 <Base
   title="Cub Scout Pack 358 — Lucas, TX"
   description="Cub Scouts for K–5 kids and their families in Lucas & Lovejoy"
 >
-  <h1>Pack 358 — coming soon</h1>
+  <Hero
+    image={campout}
+    kicker="CUB SCOUTS · K–5 · LUCAS & LOVEJOY"
+    sub="Campouts, rockets, derby cars, and a pack full of new best friends."
+  >
+    Less screen time.<br /><span class="gold">More trail time.</span>
+    <Fragment slot="cta">
+      <a class="btn btn-primary" href="/join">Join Pack 358 →</a>
+      <a class="visit-link" href="/our-year#visit">Visit a meeting first</a>
+    </Fragment>
+  </Hero>
+
+  <section id="what-we-do" class="section">
+    <div class="container">
+      <div class="section-heading">
+        <h2>A year of firsts</h2>
+        <div class="rule" aria-hidden="true"></div>
+      </div>
+      <div class="card-grid">
+        <PhotoCard
+          image={derby}
+          tag="JANUARY"
+          title="Pinewood Derby"
+          blurb="Design it, build it, race it — the most famous event in Scouting."
+        />
+        <PhotoCard
+          image={rocket}
+          tag="SPRING"
+          title="Rocket Launch Day"
+          blurb="Build a real model rocket, count it down, watch it fly."
+        />
+        <PhotoCard
+          image={hike}
+          tag="FALL & SPRING"
+          title="Campouts & Trails"
+          blurb="Family campouts, day hikes, fishing derbies — parents come too."
+        />
+        <PhotoCard
+          image={regatta}
+          tag="FALL"
+          title="Raingutter Regatta"
+          blurb="Build a sailboat, race it down the gutter — huff and puff to the finish."
+        />
+      </div>
+      <div class="chip-row">
+        <span class="chip">🎖️ Ranks: Lion → Arrow of Light</span>
+        <span class="chip">🇺🇸 Service &amp; flag ceremonies</span>
+        <span class="chip">🎉 Blue &amp; Gold banquet</span>
+      </div>
+    </div>
+  </section>
+
+  <RhythmBand />
+
+  <section class="section">
+    <div class="container why-stay">
+      <p class="muted">
+        Every kid finds their people here — the friends who show up at derby, at
+        camp, and at the pack meeting cheering just as loud. You'll find your
+        people too, the other parents figuring out badges and forms and
+        carpools right alongside you. And because the year runs on a rhythm —
+        den meetings, pack meetings, one big adventure each season — you can
+        actually plan around it instead of chasing surprises.
+      </p>
+      <div class="join-cta">
+        <a class="btn btn-primary" href="/join">How to Join (2 easy steps) →</a>
+      </div>
+    </div>
+  </section>
 </Base>
+
+<style>
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .section-heading h2 {
+    font-size: 1.4rem;
+  }
+  .rule {
+    height: 3px;
+    flex: 1;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+  }
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+    justify-content: center;
+  }
+  .why-stay {
+    max-width: 640px;
+    text-align: center;
+  }
+  .why-stay p {
+    font-size: 0.95rem;
+  }
+  .join-cta {
+    margin-top: 22px;
+  }
+  .visit-link {
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 1px;
+  }
+</style>
