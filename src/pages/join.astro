@@ -1,0 +1,158 @@
+---
+import Base from '../layouts/Base.astro';
+import StepCard from '../components/StepCard.astro';
+import { linkOr } from '../lib/links';
+import pack from '../data/pack.json';
+import faqs from '../data/faqs.json';
+---
+
+<Base
+  title="Join Pack 358 — Cub Scouts in Lucas & Lovejoy"
+  description="How to join Cub Scout Pack 358: register with Scouting America and pay pack dues — two quick steps."
+>
+  <section class="section">
+    <div class="container">
+      <span class="kicker kicker--dark">HOW TO JOIN</span>
+      <h1>Joining Pack 358</h1>
+      <p class="intro muted">
+        Registration happens in <strong>two steps with two separate payments</strong>
+        — one to Scouting America (national &amp; council), one to the pack. That
+        surprises people, so here's exactly how it works and why the money is
+        split that way.
+      </p>
+
+      <div class="step-grid">
+        <StepCard n={1} title="Register with Scouting America">
+          This is your child's official BSA membership — insurance, advancement
+          records, the works. You'll create an account on <strong>BeAScout</strong>,
+          pick Pack 358, and pay the national + council registration fee
+          directly to BSA.
+          <div class="fee-box">
+            <strong>${pack.fees.bsa}/year</strong> · paid to Scouting America
+          </div>
+          <Fragment slot="cta">
+            <a class="btn btn-navy" href={linkOr('beAScout', 'BeAScout link please')}
+              >Register on BeAScout →</a
+            >
+          </Fragment>
+        </StepCard>
+
+        <StepCard n={2} accent title="Pay pack dues">
+          Pack dues stay right here in the pack — they fund awards &amp; badges,
+          Pinewood Derby kits, campout gear, and the Blue &amp; Gold banquet.
+          Paid online through our secure payment page, card or bank transfer,
+          and 100% goes to the pack.
+          <div class="fee-box">
+            <strong>${pack.fees.pack}/year</strong> · paid to Pack 358
+          </div>
+          <p class="scholarship">
+            Scholarships are available — cost should never keep a kid out of
+            Scouting. Email us, no questions asked.
+          </p>
+          <Fragment slot="cta">
+            <a class="btn btn-primary" href={linkOr('zeffyDues', 'Pack dues')}
+              >Pay Pack Dues →</a
+            >
+          </Fragment>
+        </StepCard>
+      </div>
+
+      <div class="not-ready">
+        <strong>Not ready to commit?</strong> Come to a pack meeting first — we
+        meet {pack.packMeeting} — no registration needed, kids can join the
+        activity, and you can pepper the Cubmaster with questions.
+        <a href="/our-year#visit">See when we meet →</a>
+      </div>
+
+      <p class="cost-summary muted">
+        <strong>What it costs, all-in:</strong> BSA registration (${pack.fees.bsa}) +
+        pack dues (${pack.fees.pack}) + uniform (~${pack.fees.uniformLow}–${pack.fees.uniformHigh},
+        see our <a href="/uniforms">gear guide</a> for what to skip) — and
+        remember: scholarships are available.
+      </p>
+
+      <div class="faq-strip">
+        <h2>Questions</h2>
+        {
+          faqs.map((faq) => (
+            <details>
+              <summary>{faq.q}</summary>
+              <p>{faq.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .intro {
+    max-width: 560px;
+    margin-top: 10px;
+    font-size: 0.95rem;
+  }
+  .step-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .fee-box {
+    margin-top: 10px;
+    background: var(--cream);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    color: var(--navy);
+  }
+  .scholarship {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .not-ready {
+    margin-top: 20px;
+    background: #eae6db;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .not-ready a {
+    color: var(--navy);
+    text-decoration: underline;
+  }
+  .cost-summary {
+    margin-top: 18px;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    max-width: 640px;
+  }
+  .cost-summary a {
+    text-decoration: underline;
+  }
+  .faq-strip {
+    margin-top: 40px;
+  }
+  .faq-strip h2 {
+    font-size: 1.2rem;
+  }
+  .faq-strip details {
+    border-bottom: 1px solid var(--line);
+    padding: 12px 0;
+  }
+  .faq-strip summary {
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  .faq-strip p {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+</style>
