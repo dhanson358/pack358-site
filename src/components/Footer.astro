@@ -1,10 +1,7 @@
 ---
-// TODO(task-3): read from pack.json
-const pack = {
-  name: 'Lovejoy Pack 358',
-  city: 'Lucas, TX',
-  email: 'info@lovejoypack358.com',
-};
+import pack from '../data/pack.json';
+import { linkOr } from '../lib/links';
+
 const year = new Date().getFullYear();
 ---
 <footer>
@@ -17,7 +14,7 @@ const year = new Date().getFullYear();
     <div class="families">
       <p class="label">Families:</p>
       <nav>
-        <a href="https://advancements.scouting.org/" target="_blank" rel="noopener noreferrer">ScoutBook Calendar</a>
+        <a href={linkOr('scoutbookCalendar', 'ScoutBook calendar link')} target="_blank" rel="noopener noreferrer">ScoutBook Calendar</a>
         <a href="/payments">Payments</a>
         <a href="/health-forms">Health Forms</a>
       </nav>

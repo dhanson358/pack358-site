@@ -1,0 +1,66 @@
+[
+  {
+    "season": "Fall",
+    "events": [
+      {
+        "name": "Join Night",
+        "blurb": "New families welcome! Learn about dens, ranks, and what Cub Scouts is all about."
+      },
+      {
+        "name": "Family Campout",
+        "blurb": "S'mores, campfire, and games under the stars—a great way to bond."
+      },
+      {
+        "name": "Raingutter Regatta",
+        "blurb": "Scouts design and race their own boats. Creativity and engineering in action."
+      },
+      {
+        "name": "Popcorn Sale",
+        "blurb": "Fundraiser helping dens cover activity costs while teaching salesmanship."
+      }
+    ]
+  },
+  {
+    "season": "Winter",
+    "events": [
+      {
+        "name": "Pinewood Derby",
+        "blurb": "Scouts carve wooden cars and race them down the track—the Pack's biggest event."
+      },
+      {
+        "name": "Blue & Gold Banquet",
+        "blurb": "Celebrate the year with awards, fun skits, and recognizing growth."
+      }
+    ]
+  },
+  {
+    "season": "Spring",
+    "events": [
+      {
+        "name": "Family Campout",
+        "blurb": "Another outdoor adventure with dens and families enjoying nature."
+      },
+      {
+        "name": "Rocket Launch Day",
+        "blurb": "Scouts build and launch model rockets—an unforgettable STEM experience."
+      },
+      {
+        "name": "Crossover Ceremony",
+        "blurb": "Webelos and Arrow of Light scouts transition to their next adventure in Scouts BSA."
+      }
+    ]
+  },
+  {
+    "season": "Summer",
+    "events": [
+      {
+        "name": "Den Day Camps",
+        "blurb": "Each den enjoys shorter outings and day activities—low-key and fun."
+      },
+      {
+        "name": "Pack Picnic",
+        "blurb": "Outdoor gathering to start wrapping up the year together."
+      }
+    ]
+  }
+]

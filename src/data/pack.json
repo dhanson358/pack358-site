@@ -1,0 +1,22 @@
+{
+  "name": "Lovejoy Pack 358",
+  "city": "Lucas, TX",
+  "email": "info@lovejoypack358.com",
+  "grades": "K–5",
+  "area": "Lucas & Lovejoy",
+  "packMeeting": "Last Wednesday of each month (except Nov & Dec) at Sloan Creek Intermediate School",
+  "denMeeting": "About once a month on Sundays — each den sets its time and place",
+  "fees": { "bsa": 85, "pack": 150, "uniformLow": 50, "uniformHigh": 70 },
+  "scoutShop": {
+    "name": "Billy Lyle Gamble Scout Shop",
+    "city": "Fairview, TX",
+    "note": "verify exact name/address before launch"
+  },
+  "links": {
+    "beAScout": "PENDING",
+    "zeffyDues": "PENDING",
+    "scoutbookCalendar": "PENDING",
+    "healthFormUpload": "PENDING",
+    "ahmrPdf": "https://www.scouting.org/health-and-safety/ahmr/"
+  }
+}
