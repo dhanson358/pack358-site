@@ -1,0 +1,25 @@
+---
+import PatchLogo from './PatchLogo.astro';
+---
+<header>
+  <div class="container inner">
+    <a href="/" class="brand"><PatchLogo size={38} />
+      <span class="wordmark">LOVEJOY<br /><em>PACK 358</em></span></a>
+    <nav>
+      <a href="/#what-we-do">What We Do</a><a href="/join">Join</a>
+      <a href="/uniforms">Uniforms &amp; Gear</a><a href="/our-year">Our Year</a>
+      <a href="/payments" class="pay">Payments</a>
+    </nav>
+  </div>
+</header>
+<style>
+  header { background: var(--navy); border-bottom: 3px solid var(--gold); }
+  .inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding-top: 10px; padding-bottom: 10px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .wordmark { color: var(--cream); font-weight: 800; font-size: 0.85rem; letter-spacing: 1.5px; line-height: 1.1; }
+  .wordmark em { color: var(--gold); font-style: normal; font-size: 0.65rem; letter-spacing: 3px; }
+  nav { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  nav a { color: #c9d4e4; font-size: 0.85rem; text-decoration: none; font-weight: 600; }
+  nav a:hover { color: var(--gold); }
+  .pay { background: var(--orange); color: #fff; padding: 6px 14px; border-radius: 5px; font-weight: 700; }
+</style>

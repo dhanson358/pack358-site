@@ -1,0 +1,41 @@
+---
+// TODO(task-3): read from pack.json
+const pack = {
+  name: 'Lovejoy Pack 358',
+  city: 'Lucas, TX',
+  email: 'info@lovejoypack358.com',
+};
+const year = new Date().getFullYear();
+---
+<footer>
+  <div class="container inner">
+    <div class="about">
+      <p class="name">{pack.name}</p>
+      <p class="city">{pack.city}</p>
+      <p class="email"><a href={`mailto:${pack.email}`}>{pack.email}</a></p>
+    </div>
+    <div class="families">
+      <p class="label">Families:</p>
+      <nav>
+        <a href="https://advancements.scouting.org/" target="_blank" rel="noopener noreferrer">ScoutBook Calendar</a>
+        <a href="/payments">Payments</a>
+        <a href="/health-forms">Health Forms</a>
+      </nav>
+    </div>
+  </div>
+  <div class="container">
+    <p class="copyright">&copy; {year} {pack.name}</p>
+  </div>
+</footer>
+<style>
+  footer { background: var(--navy-deep); color: #c9d4e4; padding: 32px 0 16px; }
+  .inner { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+  .name { color: #fff; font-weight: 800; }
+  .city, .email { color: #c9d4e4; font-size: 0.9rem; }
+  .email a { color: #c9d4e4; }
+  .families .label { font-weight: 700; color: var(--gold); font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+  .families nav { display: flex; flex-direction: column; gap: 4px; }
+  .families nav a { color: #c9d4e4; font-size: 0.9rem; text-decoration: none; }
+  .families nav a:hover { color: var(--gold); }
+  .copyright { margin-top: 24px; font-size: 0.8rem; color: #8998ae; }
+</style>

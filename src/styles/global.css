@@ -1,0 +1,91 @@
+:root {
+  --navy: #17335b;
+  --navy-deep: #0f203a;
+  --gold: #ffc72c;
+  --orange: #e07a3f;
+  --cream: #f4f1ea;
+  --ink: #33404f;
+  --ink-soft: #5a6472;
+  --line: #d8d2c4;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  font-family: var(--font);
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.55;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+h1,
+h2,
+h3 {
+  color: var(--navy);
+  line-height: 1.12;
+  font-weight: 900;
+}
+a {
+  color: var(--navy);
+}
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.kicker {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.kicker--dark {
+  color: var(--orange);
+}
+.btn {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--orange);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(224, 122, 63, 0.5);
+}
+.btn-navy {
+  background: var(--navy);
+  color: #fff;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(23, 51, 91, 0.12);
+}
+.band {
+  background: var(--navy);
+  color: #c9d4e4;
+}
+.chip {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+.section {
+  padding: 44px 0;
+}
+.muted {
+  color: var(--ink-soft);
+}
