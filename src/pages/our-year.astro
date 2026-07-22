@@ -1,0 +1,196 @@
+---
+import Base from '../layouts/Base.astro';
+import { linkOr } from '../lib/links';
+import pack from '../data/pack.json';
+import year from '../data/year.json';
+
+const dens = [
+  { den: 'Lion', grade: 'K' },
+  { den: 'Tiger', grade: '1st' },
+  { den: 'Wolf', grade: '2nd' },
+  { den: 'Bear', grade: '3rd' },
+  { den: 'Webelos', grade: '4th' },
+  { den: 'Arrow of Light', grade: '5th' },
+];
+---
+
+<Base
+  title="Our Year — Pack 358"
+  description="When Pack 358 meets and what a year of Cub Scouting looks like — season by season."
+>
+  <section class="section">
+    <div class="container">
+      <span class="kicker kicker--dark">OUR YEAR</span>
+      <h1>Our Year</h1>
+
+      <section id="visit" class="visit-section">
+        <h2 class="section-heading">When &amp; where we meet</h2>
+        <div class="meet-grid">
+          <div class="card meet-card">
+            <h3>Pack meetings</h3>
+            <p>{pack.packMeeting}</p>
+          </div>
+          <div class="card meet-card">
+            <h3>Den meetings</h3>
+            <p>{pack.denMeeting}</p>
+          </div>
+        </div>
+        <p class="visit-note">
+          Visiting? Just show up to any pack meeting — no registration needed.
+        </p>
+      </section>
+
+      <h2 class="section-heading">A season-by-season look</h2>
+      <div class="season-list">
+        {
+          year.map((season) => (
+            <div class="season-block">
+              <span class="kicker">{season.season}</span>
+              <div class="event-list">
+                {season.events.map((event) => (
+                  <div class="event-row">
+                    <span class="event-name">{event.name}</span>
+                    <span class="event-blurb muted">{event.blurb}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <h2 class="section-heading">Dens by grade</h2>
+      <div class="table-wrap card">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Den</th>
+              <th scope="col">Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              dens.map((d) => (
+                <tr>
+                  <td>{d.den}</td>
+                  <td>{d.grade}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="section-heading">Already a family?</h2>
+      <div class="card families-card">
+        <p>
+          <a
+            class="btn btn-navy"
+            href={linkOr('scoutbookCalendar', 'ScoutBook calendar link')}
+            >ScoutBook calendar →</a
+          >
+        </p>
+        <p class="muted tip">
+          Tip: open the calendar link on your phone and choose "add to
+          calendar" to subscribe.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .section-heading {
+    margin-top: 36px;
+    font-size: 1.2rem;
+  }
+  .visit-section {
+    margin-top: 24px;
+    scroll-margin-top: 24px;
+  }
+  .meet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .meet-card {
+    padding: 18px;
+  }
+  .meet-card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  .meet-card p {
+    font-size: 0.9rem;
+  }
+  .visit-note {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .season-list {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .season-block .kicker {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .event-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    padding: 10px 14px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(23, 51, 91, 0.08);
+  }
+  .event-name {
+    font-weight: 800;
+    color: var(--navy);
+    min-width: 160px;
+  }
+  .event-blurb {
+    font-size: 0.9rem;
+    flex: 1;
+  }
+  .table-wrap {
+    margin-top: 14px;
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  th,
+  td {
+    text-align: left;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  th {
+    background: var(--cream);
+    color: var(--navy);
+    font-weight: 800;
+  }
+  tr:last-child td {
+    border-bottom: none;
+  }
+  .families-card {
+    margin-top: 14px;
+    padding: 18px;
+  }
+  .tip {
+    margin-top: 10px;
+    font-size: 0.85rem;
+  }
+</style>
