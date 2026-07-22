@@ -9,9 +9,15 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "qr": "node scripts/make-qr.mjs",
+    "flyer": "npm run build && node scripts/make-flyer-pdf.mjs"
   },
   "dependencies": {
     "astro": "^7.1.3"
+  },
+  "devDependencies": {
+    "playwright": "^1.61.1",
+    "qrcode": "^1.5.4"
   }
 }
