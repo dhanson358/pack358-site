@@ -1,0 +1,11 @@
+// Cloudflare Worker config — static site served from dist/ (built by `npm run build`).
+// Deployed automatically by Cloudflare Workers Builds on push to main.
+{
+  "name": "pack358-site",
+  "compatibility_date": "2026-07-23",
+  "assets": {
+    "directory": "./dist",
+    // Matches Astro's trailingSlash: 'never' — /join serves directly, /join/ redirects to /join
+    "html_handling": "drop-trailing-slash"
+  }
+}
