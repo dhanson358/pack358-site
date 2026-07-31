@@ -23,8 +23,8 @@ import pack from '../data/pack.json';
         <StepCard n={1} title="Download the blank form">
           Get the official blank AHMR (Parts A &amp; B) from Scouting America.
           <Fragment slot="cta">
-            <a class="btn btn-navy" href={pack.links.ahmrPdf}
-              >Download the AHMR (PDF) →</a
+            <a class="btn btn-navy dl-btn" href={pack.links.ahmrPdf}
+              >Download the AHMR <span class="pdf-tag">PDF</span> →</a
             >
           </Fragment>
         </StepCard>
@@ -86,5 +86,19 @@ import pack from '../data/pack.json';
     margin-top: 8px;
     font-size: 0.85rem;
     line-height: 1.55;
+  }
+  .dl-btn {
+    white-space: nowrap;
+  }
+  .pdf-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 4px;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 1px 5px;
+    vertical-align: 1px;
   }
 </style>
