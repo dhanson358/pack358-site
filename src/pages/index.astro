@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
+import pack from '../data/pack.json';
 import PhotoCard from '../components/PhotoCard.astro';
 import RhythmBand from '../components/RhythmBand.astro';
 import campout from '../assets/photos/campout.png';
@@ -12,11 +13,11 @@ import regatta from '../assets/photos/regatta.png';
 
 <Base
   title="Cub Scout Pack 358 — Lucas, TX"
-  description="Cub Scouts for K–5 kids and their families in Lucas & Lovejoy"
+  description="Cub Scouts for K–5 kids and their families in Lucas, Lovejoy & Allen"
 >
   <Hero
     image={campout}
-    kicker="CUB SCOUTS · K–5 · LUCAS & LOVEJOY"
+    kicker={`CUB SCOUTS · K–5 · ${pack.area.toUpperCase()}`}
     sub="Campouts, rockets, derby cars, and a pack full of new best friends."
   >
     Less screen time.<br /><span class="gold">More trail time.</span>
