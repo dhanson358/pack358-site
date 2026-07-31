@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="30" fill="#FFC72C" stroke="#F4F1EA" stroke-width="2" />
-  <text x="32" y="22" text-anchor="middle" dominant-baseline="central"
-    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
-    font-size="18" fill="#17335B">&#9884;</text>
-  <text x="32" y="41" text-anchor="middle" dominant-baseline="central"
-    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
-    font-weight="900" font-size="17" fill="#17335B">358</text>
-</svg>
