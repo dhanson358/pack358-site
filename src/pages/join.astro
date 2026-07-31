@@ -1,32 +1,79 @@
 ---
 import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
 import StepCard from '../components/StepCard.astro';
 import { linkOr } from '../lib/links';
 import pack from '../data/pack.json';
 import faqs from '../data/faqs.json';
+import rocket from '../assets/photos/rocket.png';
+
+const hasJoinEvent = pack.nextJoinEvent !== 'PENDING';
 ---
 
 <Base
   title="Join Pack 358 — Cub Scouts in Lucas & Lovejoy"
-  description="How to join Cub Scout Pack 358: register with Scouting America and pay pack dues — two quick steps."
+  description="Give Cub Scouts a try: visit a Pack 358 meeting, get an invite to our next event, or register today."
 >
+  <Hero
+    image={rocket}
+    kicker={`CUB SCOUTS · ${pack.grades} · ${pack.area.toUpperCase()}`}
+    sub={`Pack 358 is Cub Scouts for ${pack.grades} kids and their families. Here's how to give it a try — starting with zero commitment.`}
+  >
+    Camping. Rockets.<br />Derby cars. <span class="gold">Friends.</span>
+  </Hero>
+
   <section class="section">
     <div class="container">
-      <span class="kicker kicker--dark">HOW TO JOIN</span>
-      <h1>Joining Pack 358</h1>
-      <p class="intro muted">
-        Registration happens in <strong>two steps with two separate payments</strong>
-        — one to Scouting America (national &amp; council), one to the pack. That
-        surprises people, so here's exactly how it works and why the money is
-        split that way.
-      </p>
+      <div class="ladder">
+        <div class="rung rung--primary">
+          <span class="kicker">STEP ONE — NO SIGN-UP NEEDED</span>
+          <h2>Just come see it</h2>
+          <p>
+            {
+              hasJoinEvent ? (
+                <>
+                  Our next welcome event: <strong>{pack.nextJoinEvent}</strong>. Or drop into any
+                  pack meeting — we meet {pack.packMeeting}.
+                </>
+              ) : (
+                <>
+                  Come to any pack meeting — we meet <strong>{pack.packMeeting}</strong>.
+                </>
+              )
+            }{' '}
+            No registration, no uniform, no commitment. Kids jump straight into the activity, and
+            you can pepper the Cubmaster with questions.
+          </p>
+          <a class="btn btn-primary" href="/our-year#visit">See when we meet →</a>
+        </div>
+
+        <div class="rung rung--secondary">
+          <h3>Can't make the next one?</h3>
+          <p class="muted">
+            Leave your email and our membership chair will personally invite you to the next event.
+            That's all we'll use it for — no newsletter, no spam.
+          </p>
+          <a class="btn btn-navy" href={linkOr('getInvited', 'Invite us to the next pack event')}
+            >Get an invite →</a
+          >
+        </div>
+      </div>
+
+      <div class="ready">
+        <span class="kicker kicker--dark">READY TO JOIN NOW?</span>
+        <h2>Two steps, two payments</h2>
+        <p class="intro muted">
+          Registration happens in <strong>two steps with two separate payments</strong> — one to
+          Scouting America (national &amp; council), one to the pack. That surprises people, so
+          here's exactly how it works and why the money is split that way.
+        </p>
+      </div>
 
       <div class="step-grid">
         <StepCard n={1} title="Register with Scouting America">
-          This is your child's official BSA membership — insurance, advancement
-          records, the works. You'll create an account on <strong>BeAScout</strong>,
-          pick Pack 358, and pay the national + council registration fee
-          directly to BSA.
+          This is your child's official BSA membership — insurance, advancement records, the works.
+          You'll create an account on <strong>BeAScout</strong>, pick Pack 358, and pay the national
+          + council registration fee directly to BSA.
           <div class="fee-box">
             <strong>${pack.fees.bsa}/year</strong> · paid to Scouting America
           </div>
@@ -38,37 +85,28 @@ import faqs from '../data/faqs.json';
         </StepCard>
 
         <StepCard n={2} accent title="Pay pack dues">
-          Pack dues stay right here in the pack — they fund awards &amp; badges,
-          Pinewood Derby kits, campout gear, and the Blue &amp; Gold banquet.
-          Paid online through our secure payment page, card or bank transfer,
-          and 100% goes to the pack.
+          Pack dues stay right here in the pack — they fund awards &amp; badges, Pinewood Derby
+          kits, campout gear, and the Blue &amp; Gold banquet. Paid online through our secure
+          payment page, card or bank transfer, and 100% goes to the pack.
           <div class="fee-box">
             <strong>${pack.fees.pack}/year</strong> · paid to Pack 358
           </div>
           <p class="scholarship">
-            Scholarships are available — cost should never keep a kid out of
-            Scouting. Email us, no questions asked.
+            Scholarships are available — cost should never keep a kid out of Scouting. Email us, no
+            questions asked.
           </p>
           <Fragment slot="cta">
-            <a class="btn btn-primary" href={linkOr('zeffyDues', 'Pack dues')}
-              >Pay Pack Dues →</a
-            >
+            <a class="btn btn-primary" href={linkOr('zeffyDues', 'Pack dues')}>Pay Pack Dues →</a>
           </Fragment>
         </StepCard>
       </div>
 
-      <div class="not-ready">
-        <strong>Not ready to commit?</strong> Come to a pack meeting first — we
-        meet {pack.packMeeting} — no registration needed, kids can join the
-        activity, and you can pepper the Cubmaster with questions.{' '}
-        <a href="/our-year#visit">See when we meet →</a>
-      </div>
-
       <p class="cost-summary muted">
-        <strong>What it costs, all-in:</strong> BSA registration (${pack.fees.bsa}) +
-        pack dues (${pack.fees.pack}) + uniform (~${pack.fees.uniformLow}–${pack.fees.uniformHigh},
-        see our <a href="/uniforms">gear guide</a> for what to skip) — and
-        remember: scholarships are available.
+        <strong>What it costs, all-in:</strong> BSA registration (${pack.fees.bsa}) + pack dues (${
+          pack.fees.pack
+        }) + uniform (~${pack.fees.uniformLow}–${pack.fees.uniformHigh}, see our
+        <a href="/uniforms">gear guide</a> for what to skip) — and remember: scholarships are
+        available.
       </p>
 
       <div class="faq-strip">
@@ -87,6 +125,55 @@ import faqs from '../data/faqs.json';
 </Base>
 
 <style>
+  .ladder {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 720px) {
+    .ladder {
+      grid-template-columns: 1fr;
+    }
+  }
+  .rung--primary {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 26px 28px;
+    color: #dce4ef;
+  }
+  .rung--primary h2 {
+    color: #fff;
+    margin: 6px 0 10px;
+  }
+  .rung--primary p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .rung--secondary {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .rung--secondary h3 {
+    font-size: 1.05rem;
+  }
+  .rung--secondary p {
+    font-size: 0.85rem;
+    line-height: 1.55;
+    flex: 1;
+  }
+  .ready {
+    margin-top: 44px;
+  }
+  .ready h2 {
+    margin-top: 4px;
+  }
   .intro {
     max-width: 560px;
     margin-top: 10px;
@@ -111,18 +198,6 @@ import faqs from '../data/faqs.json';
     font-size: 0.8rem;
     color: var(--ink-soft);
     line-height: 1.5;
-  }
-  .not-ready {
-    margin-top: 20px;
-    background: #eae6db;
-    border-radius: 10px;
-    padding: 14px 18px;
-    font-size: 0.85rem;
-    line-height: 1.5;
-  }
-  .not-ready a {
-    color: var(--navy);
-    text-decoration: underline;
   }
   .cost-summary {
     margin-top: 18px;

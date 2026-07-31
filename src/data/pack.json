@@ -5,6 +5,7 @@
   "grades": "K–5",
   "area": "Lucas & Lovejoy",
   "packMeeting": "Last Wednesday of each month (except Nov & Dec) at Sloan Creek Intermediate School",
+  "nextJoinEvent": "PENDING",
   "denMeeting": "About once a month on Sundays — each den sets its time and place",
   "fees": { "bsa": 85, "pack": 150, "uniformLow": 50, "uniformHigh": 70 },
   "scoutShop": {
@@ -14,6 +15,7 @@
   },
   "links": {
     "beAScout": "PENDING",
+    "getInvited": "PENDING",
     "zeffyDues": "PENDING",
     "scoutbookCalendar": "PENDING",
     "healthFormUpload": "PENDING",
