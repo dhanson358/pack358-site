@@ -1,6 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import pack from '../data/pack.json';
+import uniformPair from '../assets/photos/uniform-pair.jpg';
+import { Image } from 'astro:assets';
 ---
 
 <Base
@@ -13,32 +15,46 @@ import pack from '../data/pack.json';
       <h1>Uniforms &amp; Gear (what to actually buy)</h1>
 
       <div class="callout">
-        <strong>Don't buy anything before your first meeting.</strong>
+        <strong>Don't buy anything before your first meeting.</strong>{' '}
         Come as you are, meet the den, and figure out sizing before you spend
         a dime. And if money's tight or your scout is between sizes, just
         ask us — we have a hand-me-down bin.
       </div>
 
-      <div class="list-grid">
-        <div class="card list-card">
-          <h2>Buy this</h2>
-          <ul>
-            <li>Official Cub Scout shirt (den color)</li>
-            <li>Neckerchief + slide</li>
-            <li>Belt</li>
-          </ul>
+      <div class="guide-grid">
+        <div class="list-col">
+          <div class="card list-card">
+            <h2>Buy this</h2>
+            <ul>
+              <li>Official Cub Scout shirt (den color)</li>
+              <li>Neckerchief + slide</li>
+              <li>Belt</li>
+            </ul>
+          </div>
+          <div class="card list-card">
+            <h2>Skip / ask first</h2>
+            <ul>
+              <li>Official pants</li>
+              <li>Official socks</li>
+              <li>Hats</li>
+            </ul>
+            <p class="ask-note muted">
+              Specifics vary by den — ask your den leader before you buy.
+            </p>
+          </div>
         </div>
-        <div class="card list-card">
-          <h2>Skip / ask first</h2>
-          <ul>
-            <li>Official pants</li>
-            <li>Official socks</li>
-            <li>Hats</li>
-          </ul>
-          <p class="ask-note muted">
-            Specifics vary by den — ask your den leader before you buy.
-          </p>
-        </div>
+        <figure class="uniform-photo">
+          <Image
+            src={uniformPair}
+            alt="Two Pack 358 scouts in uniform — a younger scout in just the shirt, an older scout with hat, neckerchief and slide"
+            widths={[420, 640]}
+            sizes="(max-width: 720px) 100vw, 320px"
+          />
+          <figcaption class="muted">
+            The whole range: younger scouts keep it simple; extras like hats and neckerchief styles
+            come with rank.
+          </figcaption>
+        </figure>
       </div>
 
       <h2 class="section-heading">By rank</h2>
@@ -75,7 +91,7 @@ import pack from '../data/pack.json';
 
       <h2 class="section-heading">Patch placement</h2>
       <p>
-        Not sure where a patch goes? See the official
+        Not sure where a patch goes? See the official{' '}
         <a href="https://www.scouting.org/resources/insignia-guide/"
           >BSA insignia guide</a
         >.
@@ -99,11 +115,35 @@ import pack from '../data/pack.json';
     font-size: 0.9rem;
     line-height: 1.55;
   }
-  .list-grid {
+  .guide-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 14px;
+    grid-template-columns: 1fr 320px;
+    gap: 20px;
     margin-top: 24px;
+    align-items: start;
+  }
+  @media (max-width: 720px) {
+    .guide-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .list-col {
+    display: grid;
+    gap: 14px;
+  }
+  .uniform-photo {
+    margin: 0;
+  }
+  .uniform-photo :global(img) {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(23, 51, 91, 0.15);
+  }
+  .uniform-photo figcaption {
+    margin-top: 8px;
+    font-size: 0.75rem;
+    line-height: 1.5;
   }
   .list-card {
     padding: 18px;

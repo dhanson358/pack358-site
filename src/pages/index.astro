@@ -7,7 +7,7 @@ import RhythmBand from '../components/RhythmBand.astro';
 import campout from '../assets/photos/campout.png';
 import derby from '../assets/photos/derby.png';
 import rocket from '../assets/photos/rocket.png';
-import hike from '../assets/photos/hike.png';
+import trail from '../assets/photos/trail.jpg';
 import regatta from '../assets/photos/regatta.png';
 import rocketPrep from '../assets/photos/rocket-prep.webp';
 import fishing from '../assets/photos/fishing.webp';
@@ -52,10 +52,11 @@ import { Image } from 'astro:assets';
           position="center 38%"
         />
         <PhotoCard
-          image={hike}
+          image={trail}
           tag="FALL & SPRING"
           title="Campouts & Trails"
           blurb="Family campouts and day hikes — parents come too."
+          position="center 42%"
         />
         <PhotoCard
           image={fishing}
@@ -117,10 +118,15 @@ import { Image } from 'astro:assets';
     background: linear-gradient(90deg, var(--gold), transparent);
   }
   .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 12px;
     margin-top: 14px;
+  }
+  .card-grid > :global(*) {
+    flex: 0 1 calc((100% - 24px) / 3);
+    min-width: 260px;
   }
   .chip-row {
     display: flex;
