@@ -7,14 +7,16 @@ interface Props {
   tag: string;
   title: string;
   blurb: string;
+  /** CSS object-position for the crop window, e.g. "center 35%" (default centers) */
+  position?: string;
 }
 
-const { image, tag, title, blurb } = Astro.props;
+const { image, tag, title, blurb, position = '50% 50%' } = Astro.props;
 ---
 
 <div class="card photo-card">
   <div class="photo-wrap">
-    <Image src={image} alt="" widths={[320, 480, 640]} sizes="(min-width: 640px) 480px, 100vw" class="photo" />
+    <Image src={image} alt="" widths={[320, 480, 640]} sizes="(min-width: 640px) 480px, 100vw" class="photo" style={`object-position: ${position};`} />
     <span class="tag">{tag}</span>
   </div>
   <div class="body">
