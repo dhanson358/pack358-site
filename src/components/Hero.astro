@@ -6,9 +6,10 @@ interface Props {
   image: ImageMetadata;
   kicker: string;
   sub: string;
+  badge?: string;
 }
 
-const { image, kicker, sub } = Astro.props;
+const { image, kicker, sub, badge } = Astro.props;
 ---
 
 <div class="hero">
@@ -21,7 +22,10 @@ const { image, kicker, sub } = Astro.props;
   />
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="kicker">{kicker}</div>
+    <div class="kicker-row">
+      <span class="kicker">{kicker}</span>
+      {badge && <span class="badge">{badge}</span>}
+    </div>
     <h1 class="headline"><slot /></h1>
     <p class="sub">{sub}</p>
     <div class="cta"><slot name="cta" /></div>
@@ -65,6 +69,23 @@ const { image, kicker, sub } = Astro.props;
   }
   .hero-content .kicker {
     color: var(--gold);
+  }
+  .kicker-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
   }
   .headline {
     margin-top: 6px;
