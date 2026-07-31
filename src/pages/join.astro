@@ -2,9 +2,9 @@
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import StepCard from '../components/StepCard.astro';
+import FaqList from '../components/FaqList.astro';
 import { linkOr } from '../lib/links';
 import pack from '../data/pack.json';
-import faqs from '../data/faqs.json';
 import rocket from '../assets/photos/rocket.png';
 
 const hasJoinEvent = pack.nextJoinEvent !== 'PENDING';
@@ -111,15 +111,8 @@ const hasJoinEvent = pack.nextJoinEvent !== 'PENDING';
       </p>
 
       <div class="faq-strip">
-        <h2>Questions</h2>
-        {
-          faqs.map((faq) => (
-            <details>
-              <summary>{faq.q}</summary>
-              <p>{faq.a}</p>
-            </details>
-          ))
-        }
+        <h2>Common questions</h2>
+        <FaqList />
       </div>
     </div>
   </section>
@@ -214,21 +207,5 @@ const hasJoinEvent = pack.nextJoinEvent !== 'PENDING';
   }
   .faq-strip h2 {
     font-size: 1.2rem;
-  }
-  .faq-strip details {
-    border-bottom: 1px solid var(--line);
-    padding: 12px 0;
-  }
-  .faq-strip summary {
-    font-weight: 700;
-    color: var(--navy);
-    cursor: pointer;
-    font-size: 0.9rem;
-  }
-  .faq-strip p {
-    margin-top: 8px;
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    line-height: 1.5;
   }
 </style>

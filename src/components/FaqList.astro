@@ -1,0 +1,33 @@
+---
+import faqs from '../data/faqs.json';
+---
+
+<div class="faq-list">
+  {
+    faqs.map((faq) => (
+      <details>
+        <summary>{faq.q}</summary>
+        <p>{faq.a}</p>
+      </details>
+    ))
+  }
+</div>
+
+<style>
+  .faq-list details {
+    border-bottom: 1px solid var(--line);
+    padding: 12px 0;
+  }
+  .faq-list summary {
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  .faq-list p {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+</style>

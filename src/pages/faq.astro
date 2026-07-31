@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import FaqList from '../components/FaqList.astro';
+import pack from '../data/pack.json';
+---
+
+<Base
+  title="Common Questions — Pack 358"
+  description="Answers to the questions families ask most about joining Cub Scout Pack 358: who can join, what it costs, how dens work, and more."
+>
+  <section class="section">
+    <div class="container narrow">
+      <span class="kicker kicker--dark">COMMON QUESTIONS</span>
+      <h1>Things families ask us</h1>
+      <p class="muted intro">
+        The honest answers to what parents actually want to know. Don't see yours? Email us at
+        <a href={`mailto:${pack.email}`}>{pack.email}</a> — or better, just come ask in person.
+      </p>
+
+      <FaqList />
+
+      <div class="still-curious">
+        <strong>The best answer is a visit.</strong> Come to any pack meeting — no registration
+        needed. <a href="/our-year#visit">See when we meet →</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .narrow {
+    max-width: 720px;
+  }
+  h1 {
+    margin-top: 4px;
+  }
+  .intro {
+    margin: 10px 0 24px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .intro a {
+    color: var(--navy);
+  }
+  .still-curious {
+    margin-top: 28px;
+    background: #eae6db;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .still-curious a {
+    color: var(--navy);
+    text-decoration: underline;
+  }
+</style>
