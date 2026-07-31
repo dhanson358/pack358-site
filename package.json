@@ -12,7 +12,7 @@
     "astro": "astro",
     "qr": "node scripts/make-qr.mjs",
     "flyer": "npm run build && node scripts/make-flyer-pdf.mjs",
-    "check": "npm run build && npx linkinator dist --recurse --skip 'mailto:.*'"
+    "check": "npm run build && npx linkinator dist --recurse --skip 'mailto:.*' --skip 'forms\\.gle'"
   },
   "dependencies": {
     "astro": "^7.1.3"
