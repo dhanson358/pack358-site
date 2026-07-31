@@ -9,9 +9,12 @@
   "denMeeting": "About once a month on Sundays — each den sets its time and place",
   "fees": { "bsa": 85, "pack": 150, "uniformLow": 50, "uniformHigh": 70 },
   "scoutShop": {
-    "name": "Billy Lyle Gamble Scout Shop",
+    "name": "Lyle Gamble Scout Shop",
+    "fullName": "Bobby Lyle • Billy Gamble Scouting Center (Circle Ten Council)",
+    "address": "5600 US Hwy 75 S, Fairview, TX 75069",
     "city": "Fairview, TX",
-    "note": "verify exact name/address before launch"
+    "phone": "972-359-9992",
+    "mapsQuery": "Bobby Lyle Billy Gamble Scouting Center, 5600 US Hwy 75 S, Fairview, TX 75069"
   },
   "links": {
     "beAScout": "PENDING",
