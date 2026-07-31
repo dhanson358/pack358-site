@@ -5,6 +5,9 @@ import StepCard from '../components/StepCard.astro';
 import FaqList from '../components/FaqList.astro';
 import { linkOr } from '../lib/links';
 import pack from '../data/pack.json';
+
+const zeffyReady = pack.links.zeffyDues !== 'PENDING';
+const duesHref = zeffyReady ? pack.links.zeffyDues : '/payments';
 import rocket from '../assets/photos/rocket.png';
 
 const hasJoinEvent = pack.nextJoinEvent !== 'PENDING';
@@ -97,7 +100,15 @@ const hasJoinEvent = pack.nextJoinEvent !== 'PENDING';
             questions asked.
           </p>
           <Fragment slot="cta">
-            <a class="btn btn-primary" href={linkOr('zeffyDues', 'Pack dues')}>Pay Pack Dues →</a>
+            <a class="btn btn-primary" href={duesHref}>Pay Pack Dues →</a>
+            {
+              zeffyReady && (
+                <p class="tip-pill">
+                  💛 At checkout, Zeffy suggests a tip — the tip goes to Zeffy and is optional —
+                  feel free to set it to $0.
+                </p>
+              )
+            }
           </Fragment>
         </StepCard>
       </div>
@@ -192,6 +203,16 @@ const hasJoinEvent = pack.nextJoinEvent !== 'PENDING';
     font-size: 0.8rem;
     color: var(--ink-soft);
     line-height: 1.5;
+  }
+  .tip-pill {
+    display: inline-block;
+    margin-top: 10px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 5px 12px;
+    font-size: 0.72rem;
+    color: var(--ink);
   }
   .cost-summary {
     margin-top: 18px;

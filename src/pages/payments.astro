@@ -1,8 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
-import { linkOr } from '../lib/links';
 import pack from '../data/pack.json';
 import fees from '../data/fees.json';
+
+const zeffyReady = pack.links.zeffyDues !== 'PENDING';
 ---
 
 <Base
@@ -16,17 +17,34 @@ import fees from '../data/fees.json';
       <p class="intro muted">
         Pack dues and event fees are collected online through <strong>Zeffy</strong>,
         our payment processor — pay by card or bank transfer, and 100% goes
-        to the pack. Along the way, Zeffy will ask for an optional tip to
-        keep their platform running — the tip goes to Zeffy and is optional —
-        feel free to set it to $0.
+        to the pack.
       </p>
 
       <div class="card dues-card">
         <h2>Annual dues</h2>
         <p class="muted">Covers awards &amp; badges, Pinewood Derby kits, Raingutter Regatta boats, rockets, the Blue &amp; Gold banquet, and more — plus a free pack t-shirt for new scouts.</p>
-        <a class="btn btn-primary" href={linkOr('zeffyDues', 'Pack dues')}
-          >Annual Dues — ${pack.fees.pack}</a
-        >
+        {
+          zeffyReady ? (
+            <>
+              <a class="btn btn-primary" href={pack.links.zeffyDues}>
+                Annual Dues — ${pack.fees.pack}
+              </a>
+              <p class="tip-pill">
+                💛 At checkout, Zeffy suggests a tip — the tip goes to Zeffy and is optional —
+                feel free to set it to $0.
+              </p>
+            </>
+          ) : (
+            <div class="coming-soon">
+              <span class="soon-badge">Almost ready</span>
+              <p>
+                Online dues payment is <strong>coming soon</strong> — we're finishing setup with
+                our payment processor. Check back shortly! Questions in the meantime? Email{' '}
+                <a href={`mailto:${pack.email}`}>{pack.email}</a>.
+              </p>
+            </div>
+          )
+        }
       </div>
 
       <h2 class="section-heading">Event fees</h2>
@@ -83,5 +101,39 @@ import fees from '../data/fees.json';
     margin-top: 24px;
     font-size: 0.85rem;
     line-height: 1.6;
+  }
+  .tip-pill {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    color: var(--ink);
+  }
+  .coming-soon {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .soon-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+  .coming-soon p {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+  .coming-soon a {
+    color: var(--navy);
   }
 </style>
