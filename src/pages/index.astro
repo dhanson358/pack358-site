@@ -9,6 +9,10 @@ import derby from '../assets/photos/derby.png';
 import rocket from '../assets/photos/rocket.png';
 import hike from '../assets/photos/hike.png';
 import regatta from '../assets/photos/regatta.png';
+import rocketPrep from '../assets/photos/rocket-prep.webp';
+import fishing from '../assets/photos/fishing.webp';
+import hammock from '../assets/photos/hammock.webp';
+import { Image } from 'astro:assets';
 ---
 
 <Base
@@ -41,7 +45,7 @@ import regatta from '../assets/photos/regatta.png';
           blurb="Design it, build it, race it — the most famous event in Scouting."
         />
         <PhotoCard
-          image={rocket}
+          image={rocketPrep}
           tag="SPRING"
           title="Rocket Launch Day"
           blurb="Build a real model rocket, count it down, watch it fly."
@@ -50,7 +54,13 @@ import regatta from '../assets/photos/regatta.png';
           image={hike}
           tag="FALL & SPRING"
           title="Campouts & Trails"
-          blurb="Family campouts, day hikes, fishing — parents come too."
+          blurb="Family campouts and day hikes — parents come too."
+        />
+        <PhotoCard
+          image={fishing}
+          tag="EVERY CAMPOUT"
+          title="Fishing"
+          blurb="Poles come out at every campout — first casts, first catches, big stories."
         />
         <PhotoCard
           image={regatta}
@@ -71,16 +81,21 @@ import regatta from '../assets/photos/regatta.png';
 
   <section class="section">
     <div class="container why-stay">
-      <p class="muted">
-        Every kid finds their people here — the friends who show up at derby, at
-        camp, and at the pack meeting cheering just as loud. You'll find your
-        people too, the other parents figuring out badges and forms and
-        carpools right alongside you. And because the year runs on a rhythm —
-        den meetings, pack meetings, one big adventure each season — you can
-        actually plan around it instead of chasing surprises.
-      </p>
-      <div class="join-cta">
-        <a class="btn btn-primary" href="/join">How to Join (2 easy steps) →</a>
+      <div class="why-photo">
+        <Image src={hammock} alt="Two scouts in Cub Scout t-shirts grinning from a camp hammock" widths={[480, 760]} sizes="(max-width: 720px) 100vw, 380px" />
+      </div>
+      <div class="why-text">
+        <p class="muted">
+          Every kid finds their people here — the friends who show up at derby, at
+          camp, and at the pack meeting cheering just as loud. You'll find your
+          people too, the other parents figuring out badges and forms and
+          carpools right alongside you. And because the year runs on a rhythm —
+          den meetings, pack meetings, one big adventure each season — you can
+          actually plan around it instead of chasing surprises.
+        </p>
+        <div class="join-cta">
+          <a class="btn btn-primary" href="/join">How to Join (2 easy steps) →</a>
+        </div>
       </div>
     </div>
   </section>
@@ -114,8 +129,22 @@ import regatta from '../assets/photos/regatta.png';
     justify-content: center;
   }
   .why-stay {
-    max-width: 640px;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 28px;
+    align-items: center;
+    max-width: 880px;
+  }
+  @media (max-width: 720px) {
+    .why-stay {
+      grid-template-columns: 1fr;
+    }
+  }
+  .why-photo :global(img) {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(23, 51, 91, 0.15);
   }
   .why-stay p {
     font-size: 0.95rem;
