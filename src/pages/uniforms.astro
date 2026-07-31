@@ -21,12 +21,35 @@ import { Image } from 'astro:assets';
         ask us — we have a hand-me-down bin.
       </div>
 
+      <h2 class="section-heading">First: "Class A" vs. "Class B"</h2>
+      <div class="class-grid">
+        <div class="card class-card">
+          <h3>Class A — the formal uniform</h3>
+          <p class="muted">
+            The navy button-up shirt most people picture when they think "Scout" — patches,
+            and eventually a neckerchief and slide. Worn at pack meetings, ceremonies, and
+            anywhere we're representing the pack.
+          </p>
+        </div>
+        <div class="card class-card">
+          <h3>Class B — the pack t-shirt</h3>
+          <p class="muted">
+            Just our pack t-shirt. Worn for campouts, messy activities, and everyday den
+            meetings. <strong>Every new scout gets one free with membership.</strong>
+          </p>
+        </div>
+      </div>
+
       <div class="guide-grid">
         <div class="list-col">
           <div class="card list-card">
             <h2>Buy this</h2>
+            <p class="lion-note">
+              <strong>Lions &amp; Tigers: nothing!</strong> Your free Class B t-shirt is the whole
+              uniform at this age.
+            </p>
             <ul>
-              <li>Official Cub Scout shirt (den color)</li>
+              <li>Official Cub Scout shirt — the Class A (from Wolf up)</li>
               <li>Neckerchief + slide</li>
               <li>Belt</li>
             </ul>
@@ -114,6 +137,30 @@ import { Image } from 'astro:assets';
     padding: 16px 18px;
     font-size: 0.9rem;
     line-height: 1.55;
+  }
+  .class-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+  }
+  .class-card {
+    padding: 16px 18px;
+  }
+  .class-card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+  .class-card p {
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+  .lion-note {
+    font-size: 0.85rem;
+    background: var(--cream);
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin-bottom: 10px;
   }
   .guide-grid {
     display: grid;
