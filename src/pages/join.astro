@@ -10,7 +10,7 @@ const zeffyReady = pack.links.zeffyDues !== 'PENDING';
 const duesHref = zeffyReady ? pack.links.zeffyDues : '/payments';
 import rocket from '../assets/photos/rocket.png';
 
-const hasJoinEvent = pack.nextJoinEvent !== 'PENDING';
+const joinNight = 'joinNight' in pack ? pack.joinNight : null;
 ---
 
 <Base
@@ -30,29 +30,53 @@ const hasJoinEvent = pack.nextJoinEvent !== 'PENDING';
     <div class="container">
       <div class="ladder">
         <div class="rung rung--primary">
-          <span class="kicker">STEP ONE — NO SIGN-UP NEEDED</span>
-          <h2>Just come see it</h2>
-          <p>
-            {
-              hasJoinEvent ? (
-                <>
-                  Our next welcome event: <strong>{pack.nextJoinEvent}</strong>. Or drop into any
-                  pack meeting — we meet {pack.packMeeting}.
-                </>
-              ) : (
-                <>
-                  Come to any pack meeting — we meet <strong>{pack.packMeeting}</strong>.
-                </>
-              )
-            }{' '}
-            No registration, no uniform, no commitment. Kids jump straight into the activity, and
-            you can pepper the Cubmaster with questions.
-          </p>
-          <a class="btn btn-primary" href="/our-year#visit">See when we meet →</a>
+          {
+            joinNight ? (
+              <>
+                <span class="kicker">YOU'RE INVITED — NO SIGN-UP NEEDED</span>
+                <h2>{joinNight.title}</h2>
+                <p class="event-line">
+                  <strong>
+                    {joinNight.dateLabel} · {joinNight.time}
+                  </strong>
+                  <br />
+                  {joinNight.place}
+                </p>
+                <p>
+                  A relaxed info session for parents — meet the leaders, hear how the year works,
+                  and get every question answered. Kids are absolutely welcome. Register on the
+                  spot if you're ready, or just come listen. Nothing to bring, nothing to buy, no
+                  commitment.
+                </p>
+                <div class="event-ctas">
+                  <a class="btn btn-primary" href={joinNight.icsFile}>📅 Add to calendar</a>
+                  <a
+                    class="dir-link"
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(joinNight.mapsQuery)}`}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Get directions →
+                  </a>
+                </div>
+              </>
+            ) : (
+              <>
+                <span class="kicker">STEP ONE — NO SIGN-UP NEEDED</span>
+                <h2>Just come see it</h2>
+                <p>
+                  Come to any pack meeting — we meet <strong>{pack.packMeeting}</strong>. No
+                  registration, no uniform, no commitment. Kids jump straight into the activity,
+                  and you can pepper the Cubmaster with questions.
+                </p>
+                <a class="btn btn-primary" href="/our-year#visit">See when we meet →</a>
+              </>
+            )
+          }
         </div>
 
         <div class="rung rung--secondary">
-          <h3>Can't make the next one?</h3>
+          <h3>{joinNight ? `Can't make ${joinNight.dateShort}?` : "Can't make the next one?"}</h3>
           <p class="muted">
             Leave your email and our membership chair will personally invite you to the next event.
             That's all we'll use it for — no newsletter, no spam.
@@ -60,6 +84,32 @@ const hasJoinEvent = pack.nextJoinEvent !== 'PENDING';
           <a class="btn btn-navy" href={linkOr('getInvited', 'Invite us to the next pack event')}
             >Get an invite →</a
           >
+        </div>
+      </div>
+
+      <div class="explore">
+        <span class="kicker kicker--dark">WANT THE FULL PICTURE FIRST?</span>
+        <div class="explore-grid">
+          <a class="explore-tile" href="/#what-we-do">
+            <span class="tile-emoji">🏕️</span>
+            <span class="tile-title">What we do</span>
+            <span class="tile-blurb">Campouts, derby cars, rockets — a year of firsts</span>
+          </a>
+          <a class="explore-tile" href="/our-year">
+            <span class="tile-emoji">📅</span>
+            <span class="tile-title">Our year</span>
+            <span class="tile-blurb">When we meet and what each season looks like</span>
+          </a>
+          <a class="explore-tile" href="/uniforms">
+            <span class="tile-emoji">👕</span>
+            <span class="tile-title">Uniforms &amp; costs</span>
+            <span class="tile-blurb">What to buy, what to skip (Lions: nothing!)</span>
+          </a>
+          <a class="explore-tile" href="/faq">
+            <span class="tile-emoji">💬</span>
+            <span class="tile-title">Common questions</span>
+            <span class="tile-blurb">Girls? Other districts? Mid-year? All answered</span>
+          </a>
         </div>
       </div>
 
@@ -168,6 +218,67 @@ const hasJoinEvent = pack.nextJoinEvent !== 'PENDING';
   }
   .rung--secondary h3 {
     font-size: 1.05rem;
+  }
+  .event-line {
+    margin: 12px 0;
+    font-size: 1.15rem;
+    line-height: 1.4;
+    color: var(--gold);
+  }
+  .event-line strong {
+    color: #fff;
+    font-size: 1.25rem;
+  }
+  .event-ctas {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .dir-link {
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 1px;
+  }
+  .explore {
+    margin-top: 28px;
+  }
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .explore-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-decoration: none;
+    transition: box-shadow 0.15s;
+  }
+  .explore-tile:hover {
+    box-shadow: 0 2px 8px rgba(23, 51, 91, 0.15);
+  }
+  .tile-emoji {
+    font-size: 1.2rem;
+  }
+  .tile-title {
+    font-weight: 800;
+    color: var(--navy);
+    font-size: 0.9rem;
+  }
+  .tile-blurb {
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    line-height: 1.4;
   }
   .rung--secondary p {
     font-size: 0.85rem;

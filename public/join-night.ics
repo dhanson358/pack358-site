@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Pack 358//Join Night//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:join-night-20260819@lovejoypack358.com
+DTSTAMP:20260801T120000Z
+DTSTART;TZID=America/Chicago:20260819T183000
+DTEND;TZID=America/Chicago:20260819T193000
+SUMMARY:Pack 358 — Meet the Scouts
+LOCATION:Hart Elementary cafeteria
+DESCRIPTION:Come meet Cub Scout Pack 358! A relaxed info session for parents — kids absolutely welcome. Get every question answered and register on the spot if you'd like. Nothing to bring\, nothing to buy. More: https://lovejoypack358.com/join
+URL:https://lovejoypack358.com/join
+END:VEVENT
+END:VCALENDAR

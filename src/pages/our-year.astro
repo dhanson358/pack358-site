@@ -49,7 +49,10 @@ const dens = [
               <div class="event-list">
                 {season.events.map((event) => (
                   <div class="event-row">
-                    <span class="event-name">{event.name}</span>
+                    <span class="event-name">
+                      {event.name}
+                      {event.when && <span class="event-when">{event.when}</span>}
+                    </span>
                     <span class="event-blurb muted">{event.blurb}</span>
                   </div>
                 ))}
@@ -156,7 +159,16 @@ const dens = [
   .event-name {
     font-weight: 800;
     color: var(--navy);
-    min-width: 160px;
+    min-width: 220px;
+  }
+  .event-when {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-top: 1px;
   }
   .event-blurb {
     font-size: 0.9rem;

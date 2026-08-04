@@ -3,20 +3,34 @@
     "season": "Fall",
     "events": [
       {
-        "name": "Join Night",
-        "blurb": "New families welcome! Learn about dens, ranks, and what Cub Scouts is all about."
+        "name": "Meet the Scouts",
+        "when": "Aug 19",
+        "blurb": "New-family info night at Hart Elementary — come meet us, kids welcome!"
       },
       {
-        "name": "Family Campout",
-        "blurb": "S'mores, campfire, and games under the stars—a great way to bond."
+        "name": "Welcome Back Party",
+        "when": "Aug 23",
+        "blurb": "The whole pack kicks off the new year together."
       },
       {
         "name": "Raingutter Regatta",
-        "blurb": "Scouts design and race their own boats. Creativity and engineering in action."
+        "when": "Sep 27",
+        "blurb": "Scouts build and race their own sailboats — huff and puff to the finish."
       },
       {
-        "name": "Popcorn Sale",
-        "blurb": "Fundraiser helping dens cover activity costs while teaching salesmanship."
+        "name": "Rocket Launch",
+        "when": "Oct 21",
+        "blurb": "Build a real model rocket, count it down, watch it fly."
+      },
+      {
+        "name": "Pumpkin Carving Contest",
+        "when": "Oct 28",
+        "blurb": "Fall fun at the October pack meeting."
+      },
+      {
+        "name": "Monthly pack meetings",
+        "when": "Sep 16 · Oct 28 · Nov 18",
+        "blurb": "Everyone together — games, awards, and den showcases."
       }
     ]
   },
@@ -24,12 +38,24 @@
     "season": "Winter",
     "events": [
       {
+        "name": "Fall Campout",
+        "when": "Dec 5–6",
+        "blurb": "Tents, campfire, s'mores — families camp together."
+      },
+      {
+        "name": "Pinewood Derby Kickoff",
+        "when": "Dec 16",
+        "blurb": "Car kits handed out — let the building begin."
+      },
+      {
         "name": "Pinewood Derby",
-        "blurb": "Scouts carve wooden cars and race them down the track—the Pack's biggest event."
+        "when": "Feb 5–6",
+        "blurb": "Check-in Friday, race day Saturday — the most famous event in Scouting."
       },
       {
         "name": "Blue & Gold Banquet",
-        "blurb": "Celebrate the year with awards, fun skits, and recognizing growth."
+        "when": "Feb 17",
+        "blurb": "Scouting's birthday dinner — awards, cake, and celebration."
       }
     ]
   },
@@ -37,16 +63,19 @@
     "season": "Spring",
     "events": [
       {
-        "name": "Family Campout",
-        "blurb": "Another outdoor adventure with dens and families enjoying nature."
+        "name": "Critter Guy",
+        "when": "Mar 24",
+        "blurb": "Live animals visit the pack meeting."
       },
       {
-        "name": "Rocket Launch Day",
-        "blurb": "Scouts build and launch model rockets—an unforgettable STEM experience."
+        "name": "Rank Advancement & Arrow of Light Crossover",
+        "when": "Apr 21",
+        "blurb": "Scouts earn their next rank; our oldest scouts bridge to their troops."
       },
       {
-        "name": "Crossover Ceremony",
-        "blurb": "Webelos and Arrow of Light scouts transition to their next adventure in Scouts BSA."
+        "name": "End of Year Party",
+        "when": "May 19",
+        "blurb": "Celebrate a year of firsts, together."
       }
     ]
   },
@@ -54,12 +83,9 @@
     "season": "Summer",
     "events": [
       {
-        "name": "Den Day Camps",
-        "blurb": "Each den enjoys shorter outings and day activities—low-key and fun."
-      },
-      {
-        "name": "Pack Picnic",
-        "blurb": "Outdoor gathering to start wrapping up the year together."
+        "name": "Lighter cadence",
+        "when": "Jun–Aug",
+        "blurb": "Day activities, den day camps, and family fun before the new year kicks off."
       }
     ]
   }

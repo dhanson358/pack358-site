@@ -5,7 +5,15 @@
   "grades": "K–5",
   "area": "Lucas, Lovejoy & Allen",
   "packMeeting": "Last Wednesday of each month (except Nov & Dec) at Sloan Creek Intermediate School",
-  "nextJoinEvent": "PENDING",
+  "joinNight": {
+    "title": "Meet the Scouts",
+    "dateLabel": "Wednesday, August 19",
+    "dateShort": "August 19",
+    "time": "6:30 PM",
+    "place": "Hart Elementary cafeteria",
+    "mapsQuery": "Hart Elementary School, Lucas, TX",
+    "icsFile": "/join-night.ics"
+  },
   "denMeeting": "About once a month on Sundays — each den sets its time and place",
   "fees": { "bsa": 85, "pack": 150, "uniformLow": 50, "uniformHigh": 70 },
   "scoutShop": {
