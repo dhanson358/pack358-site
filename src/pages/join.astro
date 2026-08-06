@@ -116,6 +116,9 @@ const joinNight = 'joinNight' in pack ? pack.joinNight : null;
       <div class="ready">
         <span class="kicker kicker--dark">READY TO JOIN NOW?</span>
         <h2>Two steps, two payments</h2>
+        <p class="returning muted">
+          Already in the pack? <a href="/renew">Re-register for the new year here →</a>
+        </p>
         <p class="intro muted">
           Registration happens in <strong>two steps with two separate payments</strong> — one to
           Scouting America (national &amp; council), one to the pack. That surprises people, so
@@ -287,6 +290,14 @@ const joinNight = 'joinNight' in pack ? pack.joinNight : null;
   }
   .ready {
     margin-top: 44px;
+  }
+  .returning {
+    margin-top: 8px;
+    font-size: 0.85rem;
+  }
+  .returning a {
+    color: var(--navy);
+    font-weight: 700;
   }
   .ready h2 {
     margin-top: 4px;
