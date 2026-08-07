@@ -1,0 +1,167 @@
+---
+import Base from '../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import logo from '../assets/cub-scouts-logo.png';
+import pack from '../data/pack.json';
+
+const joinNight = 'joinNight' in pack ? pack.joinNight : null;
+---
+
+<Base
+  title="Booth Sign — Pack 358"
+  description="Printable A4 booth sign"
+  noindex
+  bare
+>
+  <div class="sheet">
+    <header>
+      <Image src={logo} alt="Cub Scouts" width={280} height={280} class="logo" />
+      <div class="kicker">CUB SCOUTS · GRADES K–5 · LUCAS, LOVEJOY &amp; ALLEN</div>
+      <h1>LOVEJOY PACK 358</h1>
+      <div class="badge">BOYS &amp; GIRLS WELCOME</div>
+    </header>
+
+    <div class="headline">
+      Camping. Rockets.<br />Derby cars. <span class="pop">Friends.</span>
+    </div>
+
+    <div class="qr-block">
+      <img src="/qr-join.svg" alt="QR code linking to lovejoypack358.com/join" class="qr" />
+      <div class="scan">Scan to see what we do<br />— and how to join!</div>
+    </div>
+
+    {
+      joinNight && (
+        <div class="event">
+          <strong>Come meet us — {joinNight.title}</strong>
+          <span>
+            {joinNight.dateLabel} · {joinNight.time} · {joinNight.place}
+          </span>
+        </div>
+      )
+    }
+
+    <footer>
+      <div class="url">lovejoypack358.com</div>
+      <div class="email">{pack.email}</div>
+    </footer>
+  </div>
+</Base>
+
+<style>
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  :global(body) {
+    background: #fff;
+  }
+  .sheet {
+    width: 210mm;
+    height: 297mm;
+    padding: 16mm 18mm 12mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+  }
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3mm;
+  }
+  .logo {
+    width: 34mm;
+    height: 34mm;
+    object-fit: contain;
+  }
+  .kicker {
+    font-size: 11pt;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--orange);
+  }
+  h1 {
+    font-size: 30pt;
+    font-weight: 900;
+    color: var(--navy);
+    letter-spacing: 1px;
+  }
+  .badge {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 11pt;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 2mm 7mm;
+    border-radius: 999px;
+  }
+  .headline {
+    margin-top: 9mm;
+    font-size: 26pt;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.15;
+  }
+  .pop {
+    color: var(--orange);
+  }
+  .qr-block {
+    margin-top: 9mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5mm;
+  }
+  .qr {
+    width: 88mm;
+    height: 88mm;
+    border: 1.2mm solid var(--navy);
+    border-radius: 6mm;
+    padding: 4mm;
+    background: #fff;
+  }
+  .scan {
+    font-size: 17pt;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.25;
+  }
+  .event {
+    margin-top: 8mm;
+    display: flex;
+    flex-direction: column;
+    gap: 1mm;
+    background: var(--cream);
+    border-left: 2mm solid var(--gold);
+    border-radius: 3mm;
+    padding: 4mm 8mm;
+    font-size: 12.5pt;
+    color: var(--ink);
+  }
+  .event strong {
+    color: var(--navy);
+    font-size: 13.5pt;
+  }
+  footer {
+    margin-top: auto;
+    width: 100%;
+    border-top: 1mm solid var(--gold);
+    padding-top: 4mm;
+    display: flex;
+    flex-direction: column;
+    gap: 1mm;
+  }
+  .url {
+    font-size: 24pt;
+    font-weight: 900;
+    color: var(--navy);
+    letter-spacing: 0.5px;
+  }
+  .email {
+    font-size: 11pt;
+    color: var(--ink-soft);
+  }
+</style>
