@@ -47,6 +47,19 @@ const zeffyReady = pack.links.zeffyDues !== 'PENDING';
         }
       </div>
 
+      <div class="card dues-card">
+        <h2>Scouting America membership (national &amp; council)</h2>
+        <p class="muted">
+          This <strong>${pack.fees.bsa}/year</strong> fee is separate from pack dues — it's paid
+          directly to Scouting America when you register, not through the pack. It covers your
+          scout's official membership, insurance, and advancement records.
+        </p>
+        <div class="fees-grid">
+          <a class="btn btn-navy" href={pack.links.beAScout}>New scout? Register on BeAScout →</a>
+          <a class="btn btn-navy" href={pack.links.myScouting}>Returning? Renew on my.scouting →</a>
+        </div>
+      </div>
+
       <h2 class="section-heading">Event fees</h2>
       {
         fees.length === 0 ? (

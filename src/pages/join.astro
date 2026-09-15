@@ -65,7 +65,7 @@ const joinNight = 'joinNight' in pack ? pack.joinNight : null;
                 <span class="kicker">STEP ONE — NO SIGN-UP NEEDED</span>
                 <h2>Just come see it</h2>
                 <p>
-                  Come to any pack meeting — we meet <strong>{pack.packMeeting}</strong>. No
+                  Come to any pack meeting — we meet <strong>{pack.packMeeting.charAt(0).toLowerCase() + pack.packMeeting.slice(1)}</strong>. No
                   registration, no uniform, no commitment. Kids jump straight into the activity,
                   and you can pepper the Cubmaster with questions.
                 </p>
