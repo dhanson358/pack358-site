@@ -1,6 +1,5 @@
 ---
 import pack from '../data/pack.json';
-import { linkOr } from '../lib/links';
 
 const year = new Date().getFullYear();
 ---
@@ -14,7 +13,7 @@ const year = new Date().getFullYear();
     <div class="families">
       <p class="label">Families:</p>
       <nav>
-        <a href={linkOr('scoutbookCalendar', 'ScoutBook calendar link')} target="_blank" rel="noopener noreferrer">ScoutBook Calendar</a>
+        <a href="/our-year#calendar">Pack Calendar</a>
         <a href="/payments">Payments</a>
         <a href="/health-forms">Health Forms</a>
         <a href="/renew">Renew for the New Year</a>
