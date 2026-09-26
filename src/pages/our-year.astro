@@ -1,8 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
-import { linkOr } from '../lib/links';
 import pack from '../data/pack.json';
 import year from '../data/year.json';
+
+// The ScoutBook feed is an .ics subscription. webcal:// makes Apple devices subscribe (stays in
+// sync); Google Calendar subscribes via its add-by-URL link.
+const calendarFeed = pack.links.scoutbookCalendar;
+const webcalFeed = calendarFeed.replace(/^https?:\/\//, 'webcal://');
+const googleSubscribe = `https://calendar.google.com/calendar/r?cid=${encodeURIComponent(webcalFeed)}`;
 
 const dens = [
   { den: 'Lion', grade: 'K' },
@@ -84,18 +89,18 @@ const dens = [
         </table>
       </div>
 
-      <h2 class="section-heading">Already a family?</h2>
+      <h2 class="section-heading" id="calendar">Already a family?</h2>
       <div class="card families-card">
-        <p>
-          <a
-            class="btn btn-navy"
-            href={linkOr('scoutbookCalendar', 'ScoutBook calendar link')}
-            >ScoutBook calendar →</a
+        <p>Put every pack event on your phone's calendar — it updates automatically when dates change.</p>
+        <p class="sub-buttons">
+          <a class="btn btn-navy" href={webcalFeed}>iPhone / Mac calendar →</a>
+          <a class="btn btn-navy" href={googleSubscribe} target="_blank" rel="noopener"
+            >Google Calendar →</a
           >
         </p>
         <p class="muted tip">
-          Tip: open the calendar link on your phone and choose "add to
-          calendar" to subscribe.
+          Anything else (Outlook, etc.): subscribe by URL using{' '}
+          <a href={calendarFeed}>this calendar link</a>.
         </p>
       </div>
     </div>
@@ -204,5 +209,11 @@ const dens = [
   .tip {
     margin-top: 10px;
     font-size: 0.85rem;
+  }
+  .sub-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
   }
 </style>

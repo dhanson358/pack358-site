@@ -20,7 +20,7 @@
     "myScouting": "https://my.scouting.org/",
     "getInvited": "https://forms.gle/EHK3tSyNWfDeA5548",
     "zeffyDues": "https://www.zeffy.com/en-US/ticketing/cub-scout-pack-358-annual-dues-2",
-    "scoutbookCalendar": "PENDING",
+    "scoutbookCalendar": "https://api.scouting.org/advancements/events/calendar/22411",
     "healthFormUpload": "https://forms.gle/uRYfUSnL5QSEB6qHA",
     "ahmrPdf": "https://filestore.scouting.org/filestore/HealthSafety/pdf/680-001_AB.pdf"
   }
